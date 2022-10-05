@@ -1,6 +1,6 @@
-# TravelYaari-Api
+# Travel-Companion
 the backend of TravelYaari Created using ExpressJs, NodeJs, and NoSql Database MongoDB (connect to MongoDB Atlas) 
-The FrontEnd part of the project is avaialable at [https://github.com/shsarv/TravelYaari-react](https://github.com/shsarv/TravelYaari-react).
+The FrontEnd part of the project is avaialable at [https://github.com/ritik2727/Travel-Companion-frontend](https://github.com/ritik2727/Travel-Companion-frontend).
 
 To run this API, do the following:
 create .env with the following code (update credentials). Make sure to create .env in the root of the project,
