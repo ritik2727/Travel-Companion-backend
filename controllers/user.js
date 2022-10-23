@@ -117,7 +117,7 @@ exports.updateUser =  (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     // user.isAdmin = req.body.isAdmin || user.isAdmin;
-    user.role = req.body.role | user.role;
+    user.role = req.body.role ;
 
     // const updatedUser = await user.save();
 
