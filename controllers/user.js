@@ -107,17 +107,17 @@ exports.updateUser =  (req, res) => {
       error: "User not found",
     });
   }
-  if (!req.body.name) {
-    return res.status(400).json({
-      error: "Name is required",
-    });
-  }
+  // if (!req.body.name) {
+  //   return res.status(400).json({
+  //     error: "Name is required",
+  //   });
+  // }
 
   if (user) {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     // user.isAdmin = req.body.isAdmin || user.isAdmin;
-    user.role = req.body.role;
+    user.role = req.body.role | user.role;
 
     // const updatedUser = await user.save();
 
