@@ -3,6 +3,10 @@ const _ = require('lodash');
 const fs = require('fs');
 const Product = require('../models/product');
 const { errorHandler } = require('../helpers/dbErrorHandler');
+const Otp  = require("../models/otpModel.js");
+const asyncHandler = require('express-async-handler')
+const Coupon = require("../models/coupon");
+const User = require("../models/user");
 
 exports.productById = (req, res, next, id) => {
     Product.findById(id)
@@ -282,3 +286,44 @@ exports.decreaseQuantity = (req, res, next) => {
         next();
     });
 };
+
+exports.applyCoupon = asyncHandler(async (req, res) => {
+    const { coupon } = req.body
+  
+    const validCoupon = await Coupon.findOne({ name: coupon }).exec()
+    // const user = await User.findOne({ email: req.user.email }).exec()
+    if (validCoupon === null) {
+      res.status(500)
+      throw new Error('Invalid Coupon')
+    } else {
+    //   const checkAppliedCoupon = await Cart.findOne({ orderdBy: user._id })
+    //   if (checkAppliedCoupon && checkAppliedCoupon.couponApplied) {
+    //     res.status(500)
+    //     throw new Error('Already Applied Coupon')
+    //   } else {
+    //     const { products, cartTotal } = await Cart.findOne({ orderdBy: user._id })
+    //       .populate('products.product', '_id title price')
+    //       .exec()
+  
+    //     // calculate the total after discount
+    //     const totalAfterDiscount = Math.round(
+    //       cartTotal - (cartTotal * validCoupon.discount) / 100
+    //     ) // 99.99
+  
+    //     const cartByUser = await Cart.findOne({ orderdBy: user._id })
+    //     if (cartByUser) {
+    //       cartByUser.totalAfterDiscount = totalAfterDiscount
+    //       cartByUser.couponApplied = true
+    //       const updateDiscountPrice = await cartByUser.save()
+          res.json(validCoupon.discount)
+        // } 
+        // else {
+        //   res.status(500)
+        //   throw new Error('user cant found')
+        // }
+
+
+      }
+    }
+  )
+  

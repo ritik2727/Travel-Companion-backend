@@ -13,6 +13,7 @@ const categoryRoutes = require("./routes/category");
 const productRoutes = require("./routes/product");
 const braintreeRoutes = require("./routes/braintree");
 const orderRoutes = require("./routes/order");
+const couponRoutes = require("./routes/couponRoutes");
 
 // app
 const app = express();
@@ -44,6 +45,7 @@ app.use("/api", categoryRoutes);
 app.use("/api", productRoutes);
 app.use("/api", braintreeRoutes);
 app.use("/api", orderRoutes);
+app.use("/api", couponRoutes);
 
 const port = process.env.PORT || 8000;
 
