@@ -306,9 +306,9 @@ exports.applyCoupon = asyncHandler(async (req, res) => {
     //       .exec()
   
     //     // calculate the total after discount
-    //     const totalAfterDiscount = Math.round(
-    //       cartTotal - (cartTotal * validCoupon.discount) / 100
-    //     ) // 99.99
+        // const totalAfterDiscount = Math.round(
+        //   cartTotal - (cartTotal * validCoupon.discount) / 100
+        // ) // 99.99
   
     //     const cartByUser = await Cart.findOne({ orderdBy: user._id })
     //     if (cartByUser) {
